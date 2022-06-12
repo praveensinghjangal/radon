@@ -3,44 +3,34 @@ const UserModel= require("../models/userModel")
 
 
 
-const basicCode= async function(req, res) {
-    let tokenDataInHeaders= req.headers.token
-    console.log(tokenDataInHeaders)
+const basicCode= async function(req, res, next) {
+  let currentdate= new Date();
+  let dates=  "Last Sync: " +currentdate.getDate() + "/" 
+               +(currentdate.getMonth()+1)  + "/" 
+               +currentdate.getFullYear() + "@" 
+               +currentdate.getTime() + "!" 
+               +currentdate.getMinutes() + "!" 
+               +currentdate.getSeconds();
 
-    console.log( "HEADER DATA ABOVE")
-    console.log( "hey man, congrats you have reached the Handler")
-    res.send({ msg: "This is coming from controller (handler)"})
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const createUser= async function (req, res) {
-    let data= req.body
-    let savedData= await UserModel.create(data)
-    res.send({msg: savedData})
+    let ip= req.ip
+    let url=req.originalUrl
+   console.log( dates, ip, url)
+   next()
 }
-
-const getUsersData= async function (req, res) {
-    let allUsers= await UserModel.find()
-    res.send({msg: allUsers})
-}
-
-module.exports.createUser= createUser
-module.exports.getUsersData= getUsersData
 module.exports.basicCode= basicCode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
