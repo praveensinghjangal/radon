@@ -6,15 +6,27 @@ const userSchema = new mongoose.Schema( {
     mobile: {
         type: String,
 
-        required: true
+        required: true,
+        unique:true
     },
-    emailId: String,
+    emailId: {
+        type: String,
+        unique:true
+    },
     password: String,
     gender: {
         type: String,
         enum: ["male", "female", "other"]
     },
     age: Number,
-}, { timestamps: true });
+    isDeleted: {
+        type:Boolean,
+        default: false }  
+    },
+     { timestamps: true });
 
 module.exports = mongoose.model('User', userSchema)
+
+
+
+
