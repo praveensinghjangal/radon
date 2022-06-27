@@ -17,23 +17,23 @@ const blogsSchema = new mongoose.Schema( {
     ref:'Author'
     },
 
-    tags: [String, String,String, String,String, String], 
+    tags: [String], 
      
     category: {
         type: String,
         require: true
     }, 
           //  examples: [technology, entertainment, life style, food, fashion]},
-     subcategory: [String, String ,String, String, String, String],
+     subcategory: [String, String ,String],
           //  examples[technology-[web development, mobile development, AI, ML etc]] },
-     deletedAt: Date(), 
+     deletedAt: Date, 
      isDeleted: {
-        type:boolean,
+        type:Boolean,
         default: false
     }, 
-     publishedAt: Date(), 
+     publishedAt: Date, 
      isPublished: {
-        type:boolean,
+        type:Boolean,
         default: false
     }},
          { timestamps: true });

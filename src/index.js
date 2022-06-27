@@ -9,7 +9,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const monngodb_url="mongodb+srv://naveen-developer:rash47rash2021@naveen-developer.eja8d.mongodb.net/project-blog";
+const monngodb_url="mongodb+srv://jangalpraveensingh7:Jangal77777@cluster0.p7toq.mongodb.net/projectblog?retryWrites=true&w=majority";
 
 mongoose.connect(monngodb_url, {useNewUrlParser: true,useUnifiedTopology: true}).then(()=>{
     console.log("MongoDB is connected");
